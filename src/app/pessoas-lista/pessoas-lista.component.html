@@ -1,0 +1,48 @@
+<div class="container pessoas-container">
+    <h1 class="text-center mb-4">Lista de Pessoas</h1>
+
+    <div class="d-flex flex-column justify-content-between align-items-center mb-3">
+        <a class="btn btn-primary" role="button" (click)="cadastrar()">Novo Cadastro</a>
+        <a class="btn btn-primary mt-3 ml-3" role="button" (click)="listarPessoas()">Buscar</a>
+    </div>        
+
+    <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input" type="radio" name="tipoPessoa" id="pessoaFisica" value="1" [(ngModel)]="selectedTipoPessoa" selected>
+        <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
+      </div>
+      
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input" type="radio" name="tipoPessoa" id="pessoaJuridica" value="2" [(ngModel)]="selectedTipoPessoa">
+        <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
+    </div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Tipo Pessoa</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Documento</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pessoa of pessoas">
+          <th scope="row">{{pessoa.id}}</th>
+          <td>{{pessoa.tipoPessoa}}</td>
+          <td>{{pessoa.nome}}</td>
+          <td>{{pessoa.enderecoId}}</td>
+          <td>{{pessoa.documento}}</td>
+          <td>
+            <div class="btn-group" role="group">
+              <a class="btn btn-info" role="button">Visualizar</a>
+              <a class="btn btn-warning ml-3" role="button">Editar</a>
+              <a class="btn btn-danger ml-3" role="button">Excluir</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
